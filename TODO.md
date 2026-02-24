@@ -364,14 +364,14 @@ docs/
 
 **Arquivos**: `src/core/types/*.ts`
 
-- [ ] Definir `Node` base type
-- [ ] Definir `NodeType` enum ou union
-- [ ] Definir `TextNode` e `TextProps`
-- [ ] Definir `VStackNode` e `StackProps`
-- [ ] Definir tipos de dimensões (`Width`, `Height`, `Point`)
-- [ ] Definir tipos de constraints (`Constraints`, `LayoutConstraints`)
+- [x] Definir `Node` base type
+- [x] Definir `NodeType` enum ou union
+- [x] Definir `TextNode` e `TextProps`
+- [x] Definir `VStackNode` e `StackProps`
+- [x] Definir tipos de dimensões (`Width`, `Height`, `Point`)
+- [x] Definir tipos de constraints (`Constraints`, `LayoutConstraints`)
 
-**Validação**: Types compilam, são autoexplicativos.
+**Validação**: Types compilam, são autoexplicativos. ✅
 
 **Decisões Críticas**:
 
@@ -387,12 +387,12 @@ docs/
 
 **Arquivos**: `src/dsl/elements/text.ts`, `src/dsl/elements/vStack.ts`
 
-- [ ] Implementar `text(content: string, props?): TextNode`
-- [ ] Implementar `vStack(props, ...children): VStackNode`
-- [ ] Validações básicas (content não vazio, width positivo)
-- [ ] Testes unitários
+- [x] Implementar `text(content: string, props?): TextNode`
+- [x] Implementar `vStack(props, ...children): VStackNode`
+- [x] Validações básicas (content não vazio, width positivo)
+- [x] Testes unitários
 
-**Validação**:
+**Validação**: ✅
 
 ```typescript
 const node = vStack({ spacing: 8 }, text('Hello'), text('World'));
@@ -414,12 +414,12 @@ expect(node.children).toHaveLength(2);
 
 **Arquivos**: `src/core/node/base-node.ts`, `src/core/node/node-factory.ts`
 
-- [ ] Função para criar nós com defaults
-- [ ] Gerar IDs únicos para nós (importante para debug e React-like reconciliation futuro)
-- [ ] Helper para deep freeze
-- [ ] Helper para tree traversal
+- [x] Função para criar nós com defaults
+- [x] Gerar IDs únicos para nós (importante para debug e React-like reconciliation futuro)
+- [x] Helper para deep freeze
+- [x] Helper para tree traversal
 
-**Validação**: Consegue criar árvore, percorrê-la, garantir imutabilidade.
+**Validação**: Consegue criar árvore, percorrê-la, garantir imutabilidade. ✅
 
 **Por quê não antes**: DSL pode gerar nós diretamente inicialmente. Factory é refactoring para evitar duplicação.
 
