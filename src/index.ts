@@ -79,3 +79,23 @@ export type {
   LayoutContext,
   FontMetrics,
 } from './layout';
+
+export {
+  Renderer,
+  PDFKitAdapter,
+  MockRenderBackend,
+  TextCommand,
+  RectCommand,
+  LineCommand,
+  PageCommand,
+} from './renderer';
+
+export type {
+  RenderBackend,
+  TextStyle as RenderTextStyle,
+  RectStyle,
+  LineStyle,
+  PageOptions,
+  RenderCommand,
+  RendererOptions,
+} from './renderer';

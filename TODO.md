@@ -546,9 +546,9 @@ expect(layoutTree.root.box.width).toBeLessThanOrEqual(500);
 
 **Arquivos**: `src/renderer/commands/base-command.ts`, `src/renderer/commands/text-command.ts`
 
-- [ ] Command interface: `execute(backend: RenderBackend)`
-- [ ] `TextCommand`: posição, conteúdo, estilo
-- [ ] `RectCommand`: debug (outline de boxes)
+- [x] Command interface: `execute(backend: RenderBackend)`
+- [x] `TextCommand`: posição, conteúdo, estilo
+- [x] `RectCommand`: debug (outline de boxes)
 
 **Validação**: Criar command, executá-lo em mock backend.
 
@@ -564,9 +564,9 @@ expect(layoutTree.root.box.width).toBeLessThanOrEqual(500);
 
 **Arquivos**: `src/renderer/abstract/renderer-interface.ts`
 
-- [ ] Definir interface mínima
-- [ ] `drawText()`, `drawRect()`, `createPage()`, `finalize()`
-- [ ] Mock implementation para testes
+- [x] Definir interface mínima
+- [x] `drawText()`, `drawRect()`, `createPage()`, `finalize()`
+- [x] Mock implementation para testes
 
 **Validação**: Mock backend registra chamadas corretamente.
 
@@ -576,10 +576,10 @@ expect(layoutTree.root.box.width).toBeLessThanOrEqual(500);
 
 **Arquivos**: `src/renderer/adapters/pdfkit/pdfkit-adapter.ts`
 
-- [ ] Implements `RenderBackend`
-- [ ] Wrapper ao redor de `PDFDocument`
-- [ ] Traduz chamadas abstratas para API PDFKit
-- [ ] Gerencia estado interno (fonte, cor, etc.)
+- [x] Implements `RenderBackend`
+- [x] Wrapper ao redor de `PDFDocument`
+- [x] Traduz chamadas abstratas para API PDFKit
+- [x] Gerencia estado interno (fonte, cor, etc.)
 
 **Validação**: Gerar PDF real, abrir, visualizar.
 
@@ -600,10 +600,10 @@ expect(layoutTree.root.box.width).toBeLessThanOrEqual(500);
 
 **Arquivos**: `src/renderer/renderer.ts`
 
-- [ ] Recebe LayoutTree
-- [ ] Gera Commands para cada nó
-- [ ] Dispatch: TextNode → TextCommand
-- [ ] Executa commands no backend
+- [x] Recebe LayoutTree
+- [x] Gera Commands para cada nó
+- [x] Dispatch: TextNode → TextCommand
+- [x] Executa commands no backend
 
 **Validação**: LayoutTree → Commands → PDF gerado corretamente.
 
