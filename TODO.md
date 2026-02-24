@@ -345,12 +345,12 @@ docs/
 
 #### 0.1 Setup do Projeto
 
-- [ ] Inicializar projeto TypeScript
-- [ ] Configurar `tsconfig.json` (strict mode, paths aliases)
-- [ ] Setup de testes (Vitest ou Jest)
-- [ ] Setup de linting (ESLint + Prettier)
-- [ ] Configurar build (esbuild ou tsup)
-- [ ] Criar estrutura de pastas
+- [x] Inicializar projeto TypeScript
+- [x] Configurar `tsconfig.json` (strict mode, paths aliases)
+- [x] Setup de testes (Vitest ou Jest)
+- [x] Setup de linting (ESLint + Prettier)
+- [x] Configurar build (esbuild ou tsup)
+- [x] Criar estrutura de pastas
 
 **Validação**: Build passa, testes rodam, types checam.
 
