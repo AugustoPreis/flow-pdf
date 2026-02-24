@@ -1,7 +1,7 @@
 {
   "name": "flow-pdf",
   "version": "1.0.0",
-  "description": "Biblioteca de geração de PDF com API declarativa funcional",
+  "description": "PDF generation library with a functional declarative API",
   "author": "Augusto Preis Tomasi <augustopreisthomasi@gmail.com>",
   "private": true,
   "license": "MIT",
