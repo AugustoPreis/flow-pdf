@@ -1,4 +1,11 @@
 import type { TextNode, TextProps, TextStyle } from '@/core';
+import {
+  validateString,
+  validateNonEmptyString,
+  validateDimensions,
+  validate,
+  positiveNumber,
+} from '../validation';
 
 /**
  * Options for text element (excluding content)
@@ -23,34 +30,20 @@ export function text(content: string, options?: TextOptions): TextNode {
  * Validates text content and options
  */
 export function validateText(content: string, options?: TextOptions): void {
-  if (typeof content !== 'string') {
-    throw new TypeError('Text content must be a string');
-  }
-
-  if (content.length === 0) {
-    throw new Error('Text content cannot be empty');
-  }
+  validateString(content, 'Text content');
+  validateNonEmptyString(content, 'Text content');
 
   // Validate width and height if provided
-  if (options?.width !== undefined && options.width < 0) {
-    throw new Error('Text width must be non-negative');
-  }
-
-  if (options?.height !== undefined && options.height < 0) {
-    throw new Error('Text height must be non-negative');
-  }
+  validateDimensions(options?.width, options?.height, 'Text');
 
   // Validate fontSize if provided
-  if (options?.style?.fontSize !== undefined && options.style.fontSize <= 0) {
-    throw new Error('Font size must be positive');
+  if (options?.style?.fontSize !== undefined) {
+    validate(positiveNumber, options.style.fontSize, 'Font size must be positive');
   }
 
   // Validate lineHeight if provided
-  if (
-    options?.style?.lineHeight !== undefined &&
-    options.style.lineHeight <= 0
-  ) {
-    throw new Error('Line height must be positive');
+  if (options?.style?.lineHeight !== undefined) {
+    validate(positiveNumber, options.style.lineHeight, 'Line height must be positive');
   }
 }
 

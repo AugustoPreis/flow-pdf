@@ -1,5 +1,6 @@
 import type { DividerNode, DividerProps, DividerOrientation } from '@/core';
 import { freezeOptions } from '../utils';
+import { validate, positiveNumber } from '../validation';
 
 /**
  * Options for divider element
@@ -33,12 +34,12 @@ export function divider(options?: DividerOptions): DividerNode {
 export function validateDivider(options?: DividerOptions): void {
   const { thickness, length } = options || {};
 
-  if (thickness !== undefined && thickness <= 0) {
-    throw new Error('Divider thickness must be positive');
+  if (thickness !== undefined) {
+    validate(positiveNumber, thickness, 'Divider thickness must be positive');
   }
 
-  if (length !== undefined && length <= 0) {
-    throw new Error('Divider length must be positive');
+  if (length !== undefined) {
+    validate(positiveNumber, length, 'Divider length must be positive');
   }
 }
 

@@ -62,53 +62,53 @@ describe('vStack()', () => {
 
   it('should throw error for negative spacing', () => {
     expect(() => vStack({ spacing: -5 }, text('Test'))).toThrow(
-      'Spacing must be non-negative',
+      'VStack spacing must be non-negative',
     );
   });
 
   it('should throw error for negative width', () => {
     expect(() => vStack({ width: -10 }, text('Test'))).toThrow(
-      'Width must be non-negative',
+      'VStack width must be non-negative',
     );
   });
 
   it('should throw error for negative height', () => {
     expect(() => vStack({ height: -10 }, text('Test'))).toThrow(
-      'Height must be non-negative',
+      'VStack height must be non-negative',
     );
   });
 
   it('should throw error for negative padding', () => {
     expect(() => vStack({ padding: -5 }, text('Test'))).toThrow(
-      'Padding must be non-negative',
+      'VStack padding must be non-negative',
     );
   });
 
   it('should throw error for negative padding values', () => {
     expect(() => vStack({ padding: { top: -5 } }, text('Test'))).toThrow(
-      'Padding top must be non-negative',
+      'VStack padding top must be non-negative',
     );
 
     expect(() => vStack({ padding: { right: -5 } }, text('Test'))).toThrow(
-      'Padding right must be non-negative',
+      'VStack padding right must be non-negative',
     );
 
     expect(() => vStack({ padding: { bottom: -5 } }, text('Test'))).toThrow(
-      'Padding bottom must be non-negative',
+      'VStack padding bottom must be non-negative',
     );
 
     expect(() => vStack({ padding: { left: -5 } }, text('Test'))).toThrow(
-      'Padding left must be non-negative',
+      'VStack padding left must be non-negative',
     );
   });
 
   it('should throw error for invalid children', () => {
     expect(() => vStack({}, null as never)).toThrow(
-      'Child at index 0 is not a valid node',
+      'VStack child at index 0 is not a valid node',
     );
 
     expect(() => vStack({}, { invalid: 'node' } as never)).toThrow(
-      'Child at index 0 is not a valid node',
+      'VStack child at index 0 is not a valid node',
     );
   });
 
@@ -197,19 +197,19 @@ describe('hStack()', () => {
 
   it('should throw error for negative spacing', () => {
     expect(() => hStack({ spacing: -5 }, text('Test'))).toThrow(
-      'Spacing must be non-negative',
+      'HStack spacing must be non-negative',
     );
   });
 
   it('should throw error for negative width', () => {
     expect(() => hStack({ width: -10 }, text('Test'))).toThrow(
-      'Width must be non-negative',
+      'HStack width must be non-negative',
     );
   });
 
   it('should throw error for invalid children', () => {
     expect(() => hStack({}, 'invalid' as never)).toThrow(
-      'Child at index 0 is not a valid node',
+      'HStack child at index 0 is not a valid node',
     );
   });
 

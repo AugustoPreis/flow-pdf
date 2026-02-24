@@ -1,5 +1,6 @@
 import type { SpacerNode, SpacerProps } from '@/core';
 import { freezeOptions } from '../utils';
+import { validateDimensions, validate, nonNegativeNumber } from '../validation';
 
 /**
  * Options for spacer element
@@ -31,16 +32,10 @@ export function spacer(options?: SpacerOptions): SpacerNode {
 export function validateSpacer(options?: SpacerOptions): void {
   const { width, height, flex } = options || {};
 
-  if (width !== undefined && width < 0) {
-    throw new Error('Spacer width must be non-negative');
-  }
+  validateDimensions(width, height, 'Spacer');
 
-  if (height !== undefined && height < 0) {
-    throw new Error('Spacer height must be non-negative');
-  }
-
-  if (flex !== undefined && flex < 0) {
-    throw new Error('Spacer flex must be non-negative');
+  if (flex !== undefined) {
+    validate(nonNegativeNumber, flex, 'Spacer flex must be non-negative');
   }
 }
 

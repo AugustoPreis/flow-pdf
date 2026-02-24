@@ -171,11 +171,11 @@ describe('box()', () => {
 
   it('should throw error for invalid children', () => {
     expect(() => box({}, null as never)).toThrow(
-      'Child at index 0 is not a valid node',
+      'Box child at index 0 is not a valid node',
     );
 
     expect(() => box({}, { invalid: 'node' } as never)).toThrow(
-      'Child at index 0 is not a valid node',
+      'Box child at index 0 is not a valid node',
     );
   });
 
