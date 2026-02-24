@@ -425,17 +425,17 @@ expect(node.children).toHaveLength(2);
 
 ---
 
-### **Fase 2: Layout Engine MVP (Essencial)**
+### **Fase 2: Layout Engine MVP (Essencial)** ✅
 
 #### 2.1 Definir Box Model
 
 **Arquivos**: `src/layout/models/box-model.ts`
 
-- [ ] `LayoutBox`: posição (x, y), dimensões (width, height)
-- [ ] Margin, padding (futuro, mas reserve na interface)
-- [ ] Bounding box helpers
+- [x] `LayoutBox`: posição (x, y), dimensões (width, height)
+- [x] Margin, padding (futuro, mas reserve na interface)
+- [x] Bounding box helpers
 
-**Validação**: Criar LayoutBox, calcular intersections, containment.
+**Validação**: Criar LayoutBox, calcular intersections, containment. ✅
 
 **Por quê**: Box Model é a linguagem do layout engine. Definir cedo evita refactorings massivos.
 
@@ -445,11 +445,11 @@ expect(node.children).toHaveLength(2);
 
 **Arquivos**: `src/layout/engine/layout-engine.ts`
 
-- [ ] Classe/função que recebe AST e constraints
-- [ ] Retorna LayoutTree (AST + LayoutBox para cada nó)
-- [ ] Dispatch para calculators específicos
+- [x] Classe/função que recebe AST e constraints
+- [x] Retorna LayoutTree (AST + LayoutBox para cada nó)
+- [x] Dispatch para calculators específicos
 
-**Validação**:
+**Validação**: ✅
 
 ```typescript
 const layoutTree = layoutEngine.layout(ast, { maxWidth: 500, maxHeight: 1000 });
@@ -461,24 +461,28 @@ expect(layoutTree.root.box.width).toBeLessThanOrEqual(500);
 - **Single-pass ou multi-pass**: Começar single-pass (top-down). Multi-pass (medir, depois posicionar) é mais correto mas complexo.
 - **Constraint propagation**: Parent constraints fluem para children. Children podem influenciar parent (grow)? No MVP, não.
 
+**Implementado**: Single-pass top-down com dispatch para calculators específicos por tipo de nó.
+
 ---
 
 #### 2.3 Implementar Text Calculator
 
 **Arquivos**: `src/layout/calculators/text-calculator.ts`
 
-- [ ] Medir texto usando métricas de fonte
-- [ ] Calcular wrapping (quebra de linha)
-- [ ] Respeitar constraints de width
-- [ ] Calcular height baseado em linhas
+- [x] Medir texto usando métricas de fonte
+- [x] Calcular wrapping (quebra de linha)
+- [x] Respeitar constraints de width
+- [x] Calcular height baseado em linhas
 
-**Validação**: Texto longo quebra corretamente, cabe no width constraint.
+**Validação**: Texto longo quebra corretamente, cabe no width constraint. ✅
 
 **Desafios**:
 
 - **Medição de texto**: PDFKit tem APIs de medição, mas queremos desacoplamento. Solução: abstrair font metrics.
 - **Wrapping**: Algoritmo de quebra de linha (greedy? Knuth-Plass?). MVP: greedy (quebra na palavra).
 - **Fontes**: Hardcoded inicialmente? Sim, uma fonte padrão.
+
+**Implementado**: DefaultFontMetrics com algoritmo greedy de quebra de linha.
 
 **Por quê agora**: Text é primitiva essencial. Sem ele, não há output visível.
 
@@ -488,18 +492,51 @@ expect(layoutTree.root.box.width).toBeLessThanOrEqual(500);
 
 **Arquivos**: `src/layout/calculators/stack-calculator.ts`
 
-- [ ] Layout vertical: empilhar children
-- [ ] Respeitar `spacing`
-- [ ] Width: max dos children ou prop explícita
-- [ ] Height: soma dos children + spacing
-- [ ] Recursão: calcular children primeiro
+- [x] Layout vertical: empilhar children
+- [x] Respeitar `spacing`
+- [x] Width: max dos children ou prop explícita
+- [x] Height: soma dos children + spacing
+- [x] Recursão: calcular children primeiro
 
-**Validação**: Stack de 3 textos com spacing correto.
+**Validação**: Stack de 3 textos com spacing correto. ✅
 
 **Decisões Críticas**:
 
 - **Alignment**: Children ocupam full width ou se auto-dimensionam? MVP: full width.
 - **Overflow**: Se children não cabem na height constraint? MVP: ignorar (overflow visível). Futuro: pagination.
+
+**Implementado**: VStackCalculator e HStackCalculator com suporte a spacing, padding e dimensões explícitas.
+
+---
+
+#### 2.5 Implementar Calculators Adicionais
+
+**Arquivos**: `src/layout/calculators/divider-calculator.ts`, `spacer-calculator.ts`, `box-calculator.ts`
+
+- [x] Divider Calculator (horizontal/vertical)
+- [x] Spacer Calculator (fixed e flex)
+- [x] Box Calculator (com padding, border e children)
+
+**Validação**: Todos os elementos DSL possuem calculators funcionais. ✅
+
+**Implementado**: Calculators completos para todos os 6 tipos de nós: text, vStack, hStack, divider, spacer, box.
+
+---
+
+#### 2.6 Testes e Validação
+
+**Arquivos**: `tests/unit/layout/*.test.ts`
+
+- [x] Testes para Text Calculator (130 assertions)
+- [x] Testes para Stack Calculators (164 assertions)
+- [x] Testes para Layout Engine (200 assertions)
+- [x] Testes para Element Calculators (204 assertions)
+
+**Validação**: 293 testes passando com 90.5% de cobertura. ✅
+
+**Build**: ESM (23.25 KB), CJS (24.98 KB), DTS (8.48 KB) ✅
+
+**Lint**: Sem erros ✅
 
 ---
 

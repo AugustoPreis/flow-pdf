@@ -70,3 +70,12 @@ export {
   isSpacerNode,
   isBoxNode,
 } from './core/types';
+
+export { LayoutEngine, createLayoutEngine } from './layout';
+
+export type {
+  LayoutEngineConfig,
+  LayoutCalculator,
+  LayoutContext,
+  FontMetrics,
+} from './layout';
