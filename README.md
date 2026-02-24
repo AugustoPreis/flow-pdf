@@ -1,59 +1,59 @@
 # Flow PDF
 
-Biblioteca de geração de PDF com API declarativa funcional, construída sobre PDFKit.
+PDF generation library with a functional declarative API, built on top of PDFKit.
 
-## Visão Geral
+## Overview
 
-Flow PDF é uma biblioteca TypeScript que oferece uma API declarativa e funcional para geração de PDFs, inspirada em React.
+Flow PDF is a TypeScript library that provides a functional, declarative API for generating PDFs, inspired by React.
 
-## Instalação
+## Installation
 
 ```bash
 npm install
 ```
 
-## Scripts Disponíveis
+## Available Scripts
 
-- `npm run build` - Compila o projeto
-- `npm run dev` - Roda o build em modo watch
-- `npm test` - Executa os testes
-- `npm run test:watch` - Executa os testes em modo watch
-- `npm run test:coverage` - Gera relatório de cobertura de testes
-- `npm run lint` - Executa o linter
-- `npm run lint:fix` - Corrige problemas de linting automaticamente
-- `npm run format` - Formata o código com Prettier
-- `npm run format:check` - Verifica formatação sem modificar
-- `npm run typecheck` - Verifica tipos TypeScript
+- `npm run build` – Compiles the project
+- `npm run dev` – Runs the build in watch mode
+- `npm test` – Runs the tests
+- `npm run test:watch` – Runs tests in watch mode
+- `npm run test:coverage` – Generates a test coverage report
+- `npm run lint` – Runs the linter
+- `npm run lint:fix` – Automatically fixes linting issues
+- `npm run format` – Formats the code with Prettier
+- `npm run format:check` – Checks formatting without modifying files
+- `npm run typecheck` – Performs TypeScript type checking
 
-## Arquitetura
+## Architecture
 
-O projeto segue uma arquitetura em camadas:
+The project follows a layered architecture:
 
-1. **DSL (Domain-Specific Language)** - API pública e interface com o desenvolvedor
-2. **AST (Abstract Syntax Tree)** - Representação intermediária do documento
-3. **Layout Engine** - Cálculo de dimensões e posicionamento
-4. **Renderer** - Transformação em comandos de desenho
-5. **Pipeline** - Orquestração do fluxo completo
+1. **DSL (Domain-Specific Language)** – Public API and developer interface
+2. **AST (Abstract Syntax Tree)** – Intermediate document representation
+3. **Layout Engine** – Dimension and positioning calculations
+4. **Renderer** – Transformation into drawing commands
+5. **Pipeline** – Orchestration of the full workflow
 
-## Estrutura do Projeto
+## Project Structure
 
 ```
 src/
-├── core/         # Tipos e estruturas fundamentais
-├── dsl/          # API pública
-├── layout/       # Engine de layout
-├── renderer/     # Camada de renderização
-├── pipeline/     # Orquestração
-└── utils/        # Utilitários
+├── core/         # Core types and fundamental structures
+├── dsl/          # Public API
+├── layout/       # Layout engine
+├── renderer/     # Rendering layer
+├── pipeline/     # Orchestration
+└── utils/        # Utilities
 
-tests/            # Testes unitários e integração
-docs/             # Documentação
+tests/            # Unit and integration tests
+docs/             # Documentation
 ```
 
-## Status do Projeto
+## Project Status
 
-Este projeto está em desenvolvimento ativo. Veja [TODO.md](TODO.md) para o roadmap completo.
+This project is under active development. See [TODO.md](TODO.md) for the complete roadmap.
 
-## Licença
+## License
 
 MIT © Augusto Preis Tomasi
