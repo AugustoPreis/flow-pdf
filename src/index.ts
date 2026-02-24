@@ -11,6 +11,7 @@
  */
 
 export {
+  pdf,
   text,
   bold,
   italic,
@@ -28,38 +29,14 @@ export {
   coloredBox,
   borderedBox,
   paddedBox,
+  type PdfConfig,
+  type TextOptions,
+  type VStackOptions,
+  type HStackOptions,
+  type DividerOptions,
+  type SpacerOptions,
+  type BoxOptions,
 } from './dsl';
-
-export type {
-  TextOptions,
-  VStackOptions,
-  HStackOptions,
-  DividerOptions,
-  SpacerOptions,
-  BoxOptions,
-} from './dsl';
-
-export type {
-  Node,
-  TextNode,
-  VStackNode,
-  HStackNode,
-  DividerNode,
-  SpacerNode,
-  BoxNode,
-  TextStyle,
-  TextProps,
-  StackProps,
-  StackAlign,
-  TextAlign,
-  FontWeight,
-  FontStyle,
-  DividerOrientation,
-  DividerProps,
-  SpacerProps,
-  BoxProps,
-  BorderStyle,
-} from './core';
 
 export {
   isTextNode,
@@ -69,15 +46,34 @@ export {
   isDividerNode,
   isSpacerNode,
   isBoxNode,
-} from './core/types';
+  type Node,
+  type TextNode,
+  type VStackNode,
+  type HStackNode,
+  type DividerNode,
+  type SpacerNode,
+  type BoxNode,
+  type TextStyle,
+  type TextProps,
+  type StackProps,
+  type StackAlign,
+  type TextAlign,
+  type FontWeight,
+  type FontStyle,
+  type DividerOrientation,
+  type DividerProps,
+  type SpacerProps,
+  type BoxProps,
+  type BorderStyle,
+} from './core';
 
-export { LayoutEngine, createLayoutEngine } from './layout';
-
-export type {
-  LayoutEngineConfig,
-  LayoutCalculator,
-  LayoutContext,
-  FontMetrics,
+export {
+  LayoutEngine,
+  createLayoutEngine,
+  type LayoutEngineConfig,
+  type LayoutCalculator,
+  type LayoutContext,
+  type FontMetrics,
 } from './layout';
 
 export {
@@ -88,14 +84,21 @@ export {
   RectCommand,
   LineCommand,
   PageCommand,
+  type RenderBackend,
+  type TextStyle as RenderTextStyle,
+  type RectStyle,
+  type LineStyle,
+  type PageOptions,
+  type RenderCommand,
+  type RendererOptions,
 } from './renderer';
 
-export type {
-  RenderBackend,
-  TextStyle as RenderTextStyle,
-  RectStyle,
-  LineStyle,
-  PageOptions,
-  RenderCommand,
-  RendererOptions,
-} from './renderer';
+export { Pipeline, createPipeline, type PipelineConfig } from './pipeline';
+
+export {
+  FlowPdfError,
+  ValidationError,
+  LayoutError,
+  RenderError,
+  ConfigError,
+} from './utils/errors';

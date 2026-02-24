@@ -615,9 +615,9 @@ expect(layoutTree.root.box.width).toBeLessThanOrEqual(500);
 
 **Arquivos**: `src/pipeline/pipeline.ts`
 
-- [ ] Orquestra: DSL → Layout → Render
-- [ ] Cria contexto (página, configurações)
-- [ ] Tratamento de erros
+- [x] Orquestra: DSL → Layout → Render
+- [x] Cria contexto (página, configurações)
+- [x] Tratamento de erros
 
 **Validação**: End-to-end test: `pdf(vStack(...)) → Buffer`.
 
@@ -627,9 +627,9 @@ expect(layoutTree.root.box.width).toBeLessThanOrEqual(500);
 
 **Arquivos**: `src/dsl/document/pdf.ts`
 
-- [ ] Função pública: `pdf(root: Node, config?: PdfConfig): Buffer`
-- [ ] Cria pipeline
-- [ ] Retorna buffer ou stream
+- [x] Função pública: `pdf(root: Node, config?: PdfConfig): Buffer`
+- [x] Cria pipeline
+- [x] Retorna buffer ou stream
 
 **Validação**: API pública funcionando conforme spec do usuário.
 
@@ -644,9 +644,9 @@ expect(layoutTree.root.box.width).toBeLessThanOrEqual(500);
 
 **Arquivos**: `tests/integration/basic-document.test.ts`
 
-- [ ] Gerar PDF com VStack + Text
-- [ ] Validar buffer não vazio
-- [ ] (Opcional) Parsear PDF e validar conteúdo
+- [x] Gerar PDF com VStack + Text
+- [x] Validar buffer não vazio
+- [x] (Opcional) Parsear PDF e validar conteúdo
 
 **Validação**: `npm test` passa. PDF gerado abre sem erros.
 
